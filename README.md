@@ -24,7 +24,15 @@ $ cd langchain-academy
 Or, if you prefer, you can download a zip file [here](https://github.com/langchain-ai/langchain-academy/archive/refs/heads/main.zip).
 
 ### Create an environment and install dependencies
-#### Mac/Linux/WSL
+
+**Quick start (recommended)** — one-command setup and run Studio without PATH issues:
+```bash
+make setup
+make studio MODULE=2
+```
+Then open [Studio](https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024). Use `MODULE=1` through `MODULE=5` for other modules. The project uses a single `.venv` at the repo root and a `.python-version` (3.11) for consistency.
+
+#### Mac/Linux/WSL (manual)
 ```
 $ python3 -m venv lc-academy-env
 $ source lc-academy-env/bin/activate
@@ -79,11 +87,14 @@ It's easy to sign up and offers a very generous free tier. Some lessons (in Modu
 * Studio can be run locally and opened in your browser on Mac, Windows, and Linux.
 * See documentation [here](https://docs.langchain.com/langsmith/studio#local-development-server) on the local Studio development server. 
 * Graphs for LangGraph Studio are in the `module-x/studio/` folders for module 1-5.
-* To start the local development server, make sure your virtual environment is active and run the following command in your terminal in the `/studio` directory in each module:
-
-```
-langgraph dev
-```
+* To start the local development server, either run from the repo root:
+  ```bash
+  make studio MODULE=2
+  ```
+  (after `make setup`), or with your virtual environment active run in the module's `/studio` directory:
+  ```
+  langgraph dev
+  ```
 
 You should see the following output:
 ```
